@@ -5,54 +5,41 @@ import { NavLink } from 'react-router-dom';
 import {Div} from '../styles/DefaultStyles';
 
 
-const styles = {
-	heightNavItem: "30px"
-}
+
+
 
 const DivNav = styled(Div)`
   background-color: ${props => props.theme.COLOR_normal};
   color: ${props => props.theme.color_strong};
   
-  display: grid;
+  
   position: fixed;
   
+  display: flex;
   
-  @media (max-width: 480px) {
   
-  	left: 50%;
-  	transform: translateX(-50%);
-  	
+  @media (max-width: 540px) {
+  
   	width: 100%;
-  	height: ${styles.heightNavItem}; 
+  	height: 50px; 
   	
-  	
-  	grid-template-columns: 1fr;
-  	grid-template-rows: 1fr;
-  	
-  	grid-auto-flow: row;
-  	grid-auto-columns: 1fr;
-  	
+  	flex-direction: row;
   	
 	}
  
-	 @media (min-width: 481px) {
-		left: 0;
-		top: 150px;
-	  
-	  width: 70px;
-	  
-	  grid-template-columns: 1fr;
-  	grid-template-rows: 1fr;
-  	
-	  grid-auto-flow: column;
-	  grid-auto-rows: ${styles.heightNavItem};
-	  
+	 @media (min-width: 541px) {
+		width: 180px;
+	  height: 100%;
+	 
+		flex-direction: column;
+		
 	 }
   
 `;
 
+
 const DivNavItem = styled(Div)`
-	height: ${styles.heightNavItem}; 
+	height: 30px; 
 
   @media (max-width: 480px) {
   
@@ -80,7 +67,7 @@ const NavLinkMenuItem = styled(NavLink).attrs({ activeClassName })`
 function Nav () {
 	return (
  
- 
+	
   <DivNav>
   	<DivNavItem > <NavLink to="/about"> About </NavLink> </DivNavItem>
 		<DivNavItem > <NavLink to="/" exact={true}> Library </NavLink> </DivNavItem>

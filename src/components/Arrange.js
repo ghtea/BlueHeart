@@ -10,19 +10,23 @@ const DivArrange = styled(Div)`
   left: 50%;
   transform: translateX(-50%);
   
+  
   background-color: ${props => props.theme.COLOR_normal};
   color: ${props => props.theme.color_strong};
   
   
   flex-direction: row;
-  
   height: 50px;
   
-  @media (max-width: 480px) {
+  @media (max-width: 540px) {
+  	top: 50px; /* height of nav */
+  	
   	width: 100%;
 	}
  
-	 @media (min-width: 481px) {
+	 @media (min-width: 541px) {
+		top: 15px;
+		
 		width: 300px;
 	 }
   

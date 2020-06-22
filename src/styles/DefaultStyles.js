@@ -1,33 +1,36 @@
 import styled, {createGlobalStyle} from 'styled-components';
 
  const GlobalStyle = createGlobalStyle`
-  body, #root {
+  html, body, #root {
   
     background-color: ${props => props.theme.COLOR_bg};
     color: ${props => props.theme.color_normal};
     
     width: 100%;
+    height: 100%;
+    
     margin: 0;
     padding: 0;
     
   }
   
   #root {
-   
+   display: flex;
   }
   
  
  
- @media (max-width:480px) {
+ @media (max-width:540px) {
   #root {
     
+    flex-direction: column;
   }
  }
  
 
- @media (min-width: 481px) {
+ @media (min-width: 541px) {
   #root {
-    
+    flex-direction: row; 
   }
  }
   
