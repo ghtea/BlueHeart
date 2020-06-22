@@ -17,7 +17,7 @@ const DivLibrary = styled(Div)`
 	}
  
 	 @media (min-width: 541px) {
-	  margin-left: 180px; /* width of nav */
+	  margin-left: 160px; /* width of nav */
 	 
 		width: 100%;
 	  height: 100%;

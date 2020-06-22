@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Library from "./routes/Library";
 import About from "./routes/About";
-import Nav from "./routes/Nav";
+import Sub from "./routes/Sub";
 
 import {ThemeProvider } from 'styled-components';
 import {dark, light} from "./styles/themes"
@@ -58,7 +58,7 @@ class App extends React.Component {
       
       <BrowserRouter>
       
-        <Route path="/" component={Nav} />
+        <Route path="/" component={Sub} />
         
         <Switch >
         <Route path="/" exact={true} component={Library} />

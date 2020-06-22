@@ -6,7 +6,10 @@ import styled, {createGlobalStyle} from 'styled-components';
     background-color: ${props => props.theme.COLOR_bg};
     color: ${props => props.theme.color_normal};
     
+    
     width: 100%;
+    min-width: 300px !important;
+    
     height: 100%;
     
     margin: 0;
