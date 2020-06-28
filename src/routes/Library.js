@@ -28,26 +28,16 @@ const GET_AlBUMS = gql`
 
 
 const DivLibrary = styled(Div)`
-   
   
-  @media (max-width: 540px) {
-    margin-top: 30px; /* height of nav */
-  	
-  	width: 100%;
-	  height: 100%;
-  	
-	}
- 
-	 @media (min-width: 541px) {
-	  margin-left: 160px; /* width of nav */
-	 
-		width: 100%;
-	  height: 100%;
-	 
-		
-	 }
   
 `;
+
+const DivAlbums = styled(Div)`
+  display: flex;
+  flex-direction: row;
+  
+  flex-wrap:wrap;
+`
 
 function Library() {
   
@@ -58,7 +48,7 @@ function Library() {
     
     <Arrange />
     
-    <Div> 
+    <DivAlbums> 
       {loading && <Div>Loading...</Div>}
       {!loading &&
         data.getAlbums &&
@@ -70,7 +60,7 @@ function Library() {
         />
         
         )}
-    </Div>
+    </DivAlbums>
     
     </DivLibrary>
   );

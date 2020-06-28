@@ -5,10 +5,14 @@ import { NavLink } from 'react-router-dom';
 import {Div} from '../styles/DefaultStyles';
 
 
+
+const size = {
+  widthAlbum: [110, 130]
+  ,heightTitle: [30, 40]
+}
 const DivAlbum = styled(Div)`
   
-  
-  background-color: ${props => props.theme.COLOR_normal};
+
   color: ${props => props.theme.color_strong};
   
   display: flex;
@@ -16,19 +20,38 @@ const DivAlbum = styled(Div)`
   justify-content: space-between;
   align-items: center;
   
-  width: 120px;
-  height: 120px;
+  margin: 5px;
+  
+  width: ${size.widthAlbum[1]}px;
+ 
   
 `;
 
 
-const DivInfo = styled(Div)`
+const DivTitle = styled(Div)`
 	text-align: center;
+	
+	width: 100%;
+	height: ${size.heightTitle[1]}px;
+`
+
+// text-align aligh img to center!!!
+const DivImg= styled(Div)`
+	
+	position: relative;
+	width: ${size.widthAlbum[1]}px;
+	height: ${size.widthAlbum[1]}px;
+  
+  text-align: center;
+  
+}
 `
 
 const ImgAlbumCover = styled.img`
   width: 100%;
   heigth: 100%;
+  
+  border-radius: 4%;
 `
 
 
@@ -37,13 +60,18 @@ function Album ({album}) {
 	return (
  
   <DivAlbum>
-    <ImgAlbumCover src= {`https://albumcover.avantwing.com/${album["_id"]}.png`} />
-  	<DivInfo> {album.title} </DivInfo>
-    <DivInfo> {album.artist} </DivInfo>
-    <DivInfo> {album.year} </DivInfo>
+  
+    <DivTitle> {album.title} </DivTitle>
+    <DivImg> <ImgAlbumCover src= {`https://albumcover.avantwing.com/${album["_id"]}.png`} /> </DivImg>
+  	
+  	
 	</DivAlbum>
 	
 	)
 }
 
 export default Album;
+
+/*
+<DivInfo> {album.artist} </DivInfo>
+*/

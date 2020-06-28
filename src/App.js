@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import styled from 'styled-components';
 
 import Sub from "./routes/Sub";
 import Library from "./routes/Library";
@@ -9,9 +10,31 @@ import Add from "./routes/Add";
 
 import {ThemeProvider } from 'styled-components';
 import {dark, light} from "./styles/themes"
-import { GlobalStyle} from './styles/DefaultStyles';
+import { GlobalStyle, Div} from './styles/DefaultStyles';
 import { ResetStyle} from './styles/ResetStyle';
 
+
+const DivContent = styled(Div)`
+   
+  
+  @media (max-width: 540px) {
+    margin-top: 50px; /* height of sub */
+  	
+  	width: 100%;
+	  height: 100%;
+  	
+	}
+ 
+	 @media (min-width: 541px) {
+	  margin-left: 160px; /* width of nav */
+	 
+		width: 100%;
+	  height: 100%;
+	 
+		
+	 }
+  
+`;
 
 class App extends React.Component {
     
@@ -63,11 +86,13 @@ class App extends React.Component {
       
         <Route path="/" component={Sub} />
         
+        <DivContent>
         <Switch >
         <Route path="/" exact={true} component={Library} />
         <Route path="/About" component={About} />
         <Route path="/Add" component={Add} />
         </Switch >
+        </DivContent>
         
       </BrowserRouter>
       

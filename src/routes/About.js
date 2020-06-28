@@ -6,7 +6,6 @@ import {Div} from '../styles/DefaultStyles';
 
 
 const DivAbout = styled(Div)`
-  grid-area: content;
   
 `;
 
