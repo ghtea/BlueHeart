@@ -1,14 +1,16 @@
 import React, { Component }  from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import Sub from "./routes/Sub";
 import Library from "./routes/Library";
 import About from "./routes/About";
-import Sub from "./routes/Sub";
+import Add from "./routes/Add";
+
 
 import {ThemeProvider } from 'styled-components';
 import {dark, light} from "./styles/themes"
-import {GlobalStyle} from './styles/DefaultStyles';
-
+import { GlobalStyle} from './styles/DefaultStyles';
+import { ResetStyle} from './styles/ResetStyle';
 
 
 class App extends React.Component {
@@ -53,8 +55,9 @@ class App extends React.Component {
     return (
       <>
       <ThemeProvider theme={themeApp === 'light' ? light : dark }>
-      <GlobalStyle/>
       
+      <ResetStyle/>
+      <GlobalStyle/>
       
       <BrowserRouter>
       
@@ -63,6 +66,7 @@ class App extends React.Component {
         <Switch >
         <Route path="/" exact={true} component={Library} />
         <Route path="/About" component={About} />
+        <Route path="/Add" component={Add} />
         </Switch >
         
       </BrowserRouter>
