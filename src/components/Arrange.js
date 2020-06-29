@@ -15,7 +15,10 @@ const DivArrange = styled(Div)`
   color: ${props => props.theme.color_strong};
   
   
+  display: flex;
   flex-direction: row;
+  align-item: center;
+  
   height: 50px;
   
   @media (max-width: 540px) {
@@ -34,7 +37,12 @@ const DivArrange = styled(Div)`
 
 const DivArrangeItem = styled(Div)`
 	height: 100%;
-
+	width: 100%
+	
+	display: flex;
+  flex-direction: row;
+  align-item: center;
+  
   @media (max-width: 480px) {
   
 	}

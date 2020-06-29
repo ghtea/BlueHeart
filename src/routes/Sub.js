@@ -56,7 +56,8 @@ const DivProfile = styled(Div)`
 `;
 
 const DivProfileImg = styled(Div)`
-
+	border-radius: 50%;
+	
 	@media (max-width: 540px) {
 		width: 40px;
 		height: 40px;
@@ -67,6 +68,10 @@ const DivProfileImg = styled(Div)`
 		height: 120px;
 	}
 `;
+
+const ImgProfile = styled.img`
+	border-radius: 50%;
+`
 
 const DivProfileName = styled(Div)`
 
@@ -117,7 +122,7 @@ function Sub () {
   	
   	<DivProfile>
 	  	<DivProfileImg> 
-	  		<img src={require('../images/profile.jpeg')} width="100%" height="100%" /> 
+	  		<ImgProfile src={require('../images/profile.jpeg')} width="100%" height="100%" /> 
 	  	</DivProfileImg>
 	  	
 	  	<DivProfileName> msowl 

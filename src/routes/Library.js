@@ -29,6 +29,15 @@ const GET_AlBUMS = gql`
 
 const DivLibrary = styled(Div)`
   
+  @media (max-width: 540px) {
+    margin-top: 200px; 
+  	
+	}
+ 
+	 @media (min-width: 541px) {
+	  margin-top: 120px; 
+		
+	 }
   
 `;
 

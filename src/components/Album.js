@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import {Div} from '../styles/DefaultStyles';
 
-
+import HeartFilled from '../svgs/heartFilled'
+import Heart from '../svgs/heart'
 
 const size = {
-  widthAlbum: [110, 130]
-  ,heightTitle: [30, 40]
+  widthAlbum: [100, 150]
 }
 const DivAlbum = styled(Div)`
   
@@ -18,7 +18,7 @@ const DivAlbum = styled(Div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   
   margin: 5px;
   
@@ -29,15 +29,36 @@ const DivAlbum = styled(Div)`
 
 
 const DivTitle = styled(Div)`
-	text-align: center;
+  display: block;
+ 
+	width: inherit;
+	height: 1.4em;
 	
-	width: 100%;
-	height: ${size.heightTitle[1]}px;
+	text-algin: left;
+	overflow: hidden;
+	
+	white-space: nowrap;
+	text-overflow: ellipsis;
 `
 
-// text-align aligh img to center!!!
-const DivImg= styled(Div)`
+/*
+width: inherit;
 	
+	height: 2.5em;
+	line-height: 1.2em;
+	overflow: hidden;
+	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+*/
+
+// text-align aligh img to center!!!
+
+const DivAlbumCover= styled(Div)`
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 	position: relative;
 	width: ${size.widthAlbum[1]}px;
 	height: ${size.widthAlbum[1]}px;
@@ -54,6 +75,29 @@ const ImgAlbumCover = styled.img`
   border-radius: 4%;
 `
 
+const DivAlbumInfo = styled(Div)`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const DivRating = styled(Div)`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+
+const DivHeart = styled(Div)`
+  margin-left: 2px;  
+  margin-right: 2px;
+`
+
+
 
 
 function Album ({album}) {
@@ -62,8 +106,24 @@ function Album ({album}) {
   <DivAlbum>
   
     <DivTitle> {album.title} </DivTitle>
-    <DivImg> <ImgAlbumCover src= {`https://albumcover.avantwing.com/${album["_id"]}.png`} /> </DivImg>
+    
+    <DivAlbumCover> 
+      <ImgAlbumCover src= {`https://albumcover.avantwing.com/${album["_id"]}.png`} /> 
+    </DivAlbumCover>
   	
+  	<DivAlbumInfo> 
+  	
+    	<DivRating> 
+    	  <DivHeart> <HeartFilled /> </DivHeart>
+    	  <DivHeart> <HeartFilled /> </DivHeart>
+    	  <DivHeart> <HeartFilled /> </DivHeart>
+    	  <DivHeart> <Heart /> </DivHeart>
+    	</DivRating>
+  	
+  	</DivAlbumInfo>
+  	
+  	
+  
   	
 	</DivAlbum>
 	

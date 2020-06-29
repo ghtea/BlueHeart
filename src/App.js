@@ -13,6 +13,7 @@ import {dark, light} from "./styles/themes"
 import { GlobalStyle, Div} from './styles/DefaultStyles';
 import { ResetStyle} from './styles/ResetStyle';
 
+import './styles/font.css'
 
 const DivContent = styled(Div)`
    
