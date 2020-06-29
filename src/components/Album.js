@@ -29,9 +29,10 @@ const DivAlbum = styled(Div)`
 
 
 const DivTitle = styled(Div)`
+  /* block 이어야 아래와 같은게 가능!*/
   display: block;
  
-	width: inherit;
+	width: 100%;
 	height: 1.4em;
 	
 	text-algin: left;
@@ -55,6 +56,8 @@ width: inherit;
 // text-align aligh img to center!!!
 
 const DivAlbumCover= styled(Div)`
+  position: relative;
+
 	display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,29 +68,79 @@ const DivAlbumCover= styled(Div)`
   
   text-align: center;
   
+  &:hover > img {
+    opacity:0.2;
+  }
+  &:hover > div {
+    visibility: visible;
+  }
 }
 `
 
 const ImgAlbumCover = styled.img`
+  position: absolute;
+  z-index:1;
+
   width: 100%;
   heigth: 100%;
   
   border-radius: 4%;
+  
 `
 
 const DivAlbumInfo = styled(Div)`
+  position: absolute;
+  z-index:2;
+  
   width: 100%;
+  height: 100%;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  visibility: hidden;
+`
+
+const DivArtist = styled(Div)`
+
+  width: 100%;
+  height: 30%;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
+const DivArtistText = styled(Div)`
+  width: 90%;
+  
+  display: block;
+  text-algin: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+`
+
+
 const DivRating = styled(Div)`
   width: 100%;
+  height: 20%;
+  
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+
+const DivYear = styled(Div)`
+  width: 100%;
+  height: 30%;
+  
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `
@@ -108,19 +161,31 @@ function Album ({album}) {
     <DivTitle> {album.title} </DivTitle>
     
     <DivAlbumCover> 
+    
       <ImgAlbumCover src= {`https://albumcover.avantwing.com/${album["_id"]}.png`} /> 
+      
+      
+      <DivAlbumInfo className="DivAlbumInfo"> 
+  	    
+        <DivArtist> 
+  	      <DivArtistText> by {album["artist"]}  </DivArtistText>
+  	    </DivArtist>
+
+  	    
+      	<DivRating> 
+      	  <DivHeart> <HeartFilled /> </DivHeart>
+      	  <DivHeart> <HeartFilled /> </DivHeart>
+      	  <DivHeart> <HeartFilled /> </DivHeart>
+      	  <DivHeart> <Heart /> </DivHeart>
+      	</DivRating>
+      	
+      	<DivYear> {album["year"]} </DivYear>
+  	
+    	</DivAlbumInfo>
+  	
     </DivAlbumCover>
   	
-  	<DivAlbumInfo> 
   	
-    	<DivRating> 
-    	  <DivHeart> <HeartFilled /> </DivHeart>
-    	  <DivHeart> <HeartFilled /> </DivHeart>
-    	  <DivHeart> <HeartFilled /> </DivHeart>
-    	  <DivHeart> <Heart /> </DivHeart>
-    	</DivRating>
-  	
-  	</DivAlbumInfo>
   	
   	
   
